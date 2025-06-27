@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sports League Management</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">🏆 Sports League</div>
+                <div class="user-info">
+                    <div class="avatar">👤</div>
+                    <span class="username" id="usernameDisplay">Admin</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#teams"><i class="fas fa-users"></i> Teams</a></li>
+                    <li><a href="#players"><i class="fas fa-user"></i> Players</a></li>
+                    <li><a href="#matches"><i class="fas fa-calendar-alt"></i> Matches</a></li>
+                    <li><a href="#schedules"><i class="fas fa-clock"></i> Schedules</a></li>
+                    <li><a href="#standings"><i class="fas fa-trophy"></i> Standings</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #4e73df;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Teams</h3>
+                            <p id="teamsCount">12</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #1cc88a;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Players</h3>
+                            <p id="playersCount">120</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #36b9cc;">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Matches</h3>
+                            <p id="matchesCount">36</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #f6c23e;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Upcoming</h3>
+                            <p id="upcomingCount">5</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-sections">
+                    <section class="section" id="teams-section">
+                        <div class="section-header">
+                            <h2>Teams</h2>
+                            <button class="add-btn" id="addTeamBtn">Add Team</button>
+                        </div>
+                        <div class="table-container">
+                            <table id="teamsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Team Name</th>
+                                        <th>Sport</th>
+                                        <th>Players</th>
+                                        <th>Matches</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Teams will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <section class="section" id="players-section">
+                        <div class="section-header">
+                            <h2>Players</h2>
+                            <button class="add-btn" id="addPlayerBtn">Add Player</button>
+                        </div>
+                        <div class="table-container">
+                            <table id="playersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Team</th>
+                                        <th>Position</th>
+                                        <th>Age</th>
+                                        <th>Stats</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Players will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <section class="section" id="matches-section">
+                        <div class="section-header">
+                            <h2>Upcoming Matches</h2>
+                            <button class="add-btn" id="addMatchBtn">Schedule Match</button>
+                        </div>
+                        <div class="matches-grid">
+                            <!-- Matches will be populated here -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modals -->
+    <div class="modal" id="teamModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Team</h2>
+            <form id="teamForm">
+                <div class="form-group">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" id="teamName" required>
+                </div>
+                <div class="form-group">
+                    <label for="teamSport">Sport</label>
+                    <select id="teamSport" required>
+                        <option value="">Select Sport</option>
+                        <option value="Football">Football</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Baseball">Baseball</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Volleyball">Volleyball</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="teamLogo">Team Logo (Base64)</label>
+                    <input type="text" id="teamLogo" placeholder="Paste base64 encoded image">
+                </div>
+                <button type="submit" class="submit-btn">Save Team</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="modal" id="playerModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Player</h2>
+            <form id="playerForm">
+                <div class="form-group">
+                    <label for="playerName">Full Name</label>
+                    <input type="text" id="playerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="playerTeam">Team</label>
+                    <select id="playerTeam" required>
+                        <option value="">Select Team</option>
+                        <!-- Teams will be populated here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="playerPosition">Position</label>
+                    <input type="text" id="playerPosition" required>
+                </div>
+                <div class="form-group">
+                    <label for="playerAge">Age</label>
+                    <input type="number" id="playerAge" min="16" max="50" required>
+                </div>
+                <button type="submit" class="submit-btn">Save Player</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="modal" id="matchModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Schedule New Match</h2>
+            <form id="matchForm">
+                <div class="form-group">
+                    <label for="matchTeam1">Team 1</label>
+                    <select id="matchTeam1" required>
+                        <option value="">Select Team</option>
+                        <!-- Teams will be populated here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="matchTeam2">Team 2</label>
+                    <select id="matchTeam2" required>
+                        <option value="">Select Team</option>
+                        <!-- Teams will be populated here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="matchDate">Date & Time</label>
+                    <input type="datetime-local" id="matchDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="matchLocation">Location</label>
+                    <input type="text" id="matchLocation" required>
+                </div>
+                <button type="submit" class="submit-btn">Schedule Match</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="scripts/data.js"></script>
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sports League Management</title>
+    <link rel="stylesheet" href="styles/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-background">
+            <div class="sports-icons">
+                <div class="icon">⚽</div>
+                <div class="icon">🏀</div>
+                <div class="icon">🏈</div>
+                <div class="icon">⚾</div>
+                <div class="icon">🎾</div>
+            </div>
+        </div>
+        <div class="auth-form">
+            <div class="logo">🏆 Sports League</div>
+            <div class="tabs">
+                <button class="tab active" id="loginTab">Login</button>
+                <button class="tab" id="signupTab">Sign Up</button>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-button">Login</button>
+            </form>
+            
+            <form id="signupForm" style="display: none;">
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="auth-button">Sign Up</button>
+            </form>
+            
+            <div class="auth-footer">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "users": [],
+  "teams": [
+    {
+      "id": "1",
+      "name": "Red Dragons",
+      "sport": "Football",
+      "logo": "https://th.bing.com/th/id/OIP.PIFXsOHCvLuEw82sPvVlcwHaEK?w=255&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+    },
+    {
+      "id": "2",
+      "name": "Blue Sharks",
+      "sport": "Basketball",
+      "logo": "https://th.bing.com/th/id/OIP.CXM616-MedQVa3mdUfNHUQHaEK?w=297&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+    }
+  ],
+  "players": [
+    {
+      "id": "1",
+      "name": "John Smith",
+      "team": "Red Dragons",
+      "position": "Forward",
+      "age": 25
+    },
+    {
+      "id": "2",
+      "name": "Mike Johnson",
+      "team": "Blue Sharks",
+      "position": "Guard",
+      "age": 23
+    }
+  ],
+  "matches": [
+    {
+      "id": "1",
+      "team1": "Red Dragons",
+      "team2": "Blue Sharks",
+      "date": "2023-12-15T19:00",
+      "location": "City Stadium"
+    }
+  ]
+}
